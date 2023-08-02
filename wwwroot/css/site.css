@@ -1,22 +1,113 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container_index {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    width: 10%;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.itens-menu {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    gap: 8px;
+    cursor: pointer;
+}
+
+    .itens-menu > span > a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .itens-menu > span:hover {
+        font-size: 14px;
+    }
+
+.active {
+    font-size: 14px;
+    font-weight: 700;
+    color: #00ff25 !important;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(118 114 114 / 80%);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .navbar ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar li {
+        margin: 10px;
+    }
+
+    .navbar a {
+        color: #fff !important;
+        text-decoration: none;
+        font-size: 16px;
+        transition: font-size 0.2s;
+    }
+
+        .navbar a:hover {
+            font-size: 18px;
+        }
+
+/*Formulario Portal*/
+
+.form-cad-items {
+    display: flex;
+    padding: 32px;
+    width: 100%;
+    justify-content: center;
 }
