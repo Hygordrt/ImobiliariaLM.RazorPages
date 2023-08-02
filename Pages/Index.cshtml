@@ -2,9 +2,60 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    ViewData["RenderHeader"] = true;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="Header">
+    <img class="imagem_ocidental" src="img/lago_ocidental.svg" />
+</div>
+
+<div class="sessao1">
+
+    <span class="titulo">Todos os imóveis</span>
+
+    <div class="sessao_cards">
+        @foreach (var item in Model.Dados)
+        {
+            <div class="card_imoveis">
+                <div class="sessao_imovel">
+
+                    <img class="imagem_imovel" src="files/@Html.DisplayFor(modelItem => item.NomeImagemImovel)">
+                    <span class="flag flag_venda">Venda</span>
+                </div>
+                <div class="informacoes">
+                    <!--Preço-->
+                    <div class="valores">
+                        <label class="valor_imovel"><b>R$ @Html.DisplayFor(modelItem => item.Valor)</b></label> <!--valorImovel-->
+                        <label class="valor_condominio"><b>+ R$ 150 Condominio</b></label> <!--valorCondominio-->
+                    </div>
+                    <!--Endereço-->
+                    <div class="sessao_endereco">
+                        <label class="endereco"><b>@Html.DisplayFor(modelItem => item.Endereco)</b></label>
+                        <label class="cidade_bairro"><b>@Html.DisplayFor(modelItem => item.Cidade) - @Html.DisplayFor(modelItem => item.Bairro)</b></label>
+                    </div>
+                    <!--Informaçoes-->
+                    <div class="informacoes_imovel">
+                        <label><img src="icons/icon_m2.svg">  @Html.DisplayFor(modelItem => item.MtQuadrado) mt²</label>
+                        <label><img src="icons/icon_banheira.svg"> @Html.DisplayFor(modelItem => item.QtdBanheiros) banheiro</label>
+                        <label><img src="icons/icon_carro.svg"> @Html.DisplayFor(modelItem => item.QtdVagas) vaga</label>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="sessao1">
+
+    <span class="titulo">Publicações</span>
+
+</div>
+
+<div class="sessao1">
+
+    <span class="titulo">Parceiros</span>
+
+
 </div>
