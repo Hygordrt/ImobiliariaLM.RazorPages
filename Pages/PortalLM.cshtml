@@ -1,0 +1,167 @@
+﻿@page
+@model ImobiliariaLM.RazorPages.Pages.PortalLMModel
+@{
+    ViewData["RenderHeader"] = false;
+}
+
+<div class="content">
+    <div class="sidebar">
+        <h4>Like a God</h4>
+        <div class="itens-menu">
+            <span>
+                <a asp-page-handler="MostrarDiv" asp-route-divId="div0" class="@(Model.DivSelecionada == "div0" ? "active" : "")">Inicio</a>
+            </span>
+            <span>
+                <a asp-page-handler="MostrarDiv" asp-route-divId="div1" class="@(Model.DivSelecionada == "div1" ? "active" : "")">Cadastrar novo</a>
+            </span>
+            <span>
+                <a asp-page-handler="MostrarDiv" asp-route-divId="div2" class="@(Model.DivSelecionada == "div2" ? "active" : "")">Listar items</a>
+            </span>
+            <span>
+                <a asp-page="/Index">Home</a>
+            </span>
+        </div>
+    </div>
+    <!-- Div 0 -->
+    <div id="div0" class="conteudo" style="@(Model.DivSelecionada == "div0" ? "display:block;" : "display:none;")">
+        Bem vindo!
+    </div>
+    <!-- Div 1 -->
+    <div id="div1" class="conteudo" style="@(Model.DivSelecionada == "div1" ? "display:block;" : "display:none;")">
+            <div class="form-cad-items">
+                <form class="form_novo_item" asp-action="NovoItem" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.Titulo" class="control-label"></label>
+                            <input asp-for="Model.Titulo" class="form-control" />
+                            <span asp-validation-for="Model.Titulo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model.Imagem" class="control-label"></label>
+                            <input asp-for="Model.Imagem" class="form-control" acEnderecot="application/ image/*" />
+                            <span asp-validation-for="Model.Titulo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.Descricao" class="control-label"></label>
+                            <input asp-for="Model.Descricao" class="form-control" />
+                            <span asp-validation-for="Model.Descricao" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model.Valor" class="control-label"></label>
+                            <input asp-for="Model.Valor" class="form-control" />
+                            <span asp-validation-for="Model.Valor" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.VendaAluguel" class="control-label"></label>
+                            <select asp-for="Model.VendaAluguel" class="form-control">
+                                <option value="" selected>Selecione uma opção</option>
+                                <option value="Venda">Venda</option>
+                                <option value="Aluguel">Aluguel</option>
+                            </select>
+                            <span asp-validation-for="Model.VendaAluguel" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Model.Endereco" class="control-label"></label>
+                            <input asp-for="Model.Endereco" class="form-control" />
+                            <span asp-validation-for="Model.Endereco" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.CEP" class="control-label"></label>
+                            <input asp-for="Model.CEP" class="form-control" />
+                            <span asp-validation-for="Model.CEP" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model.Cidade" class="control-label"></label>
+                            <input asp-for="Model.Cidade" class="form-control" />
+                            <span asp-validation-for="Model.Cidade" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.Bairro" class="control-label"></label>
+                            <input asp-for="Model.Bairro" class="form-control" />
+                            <span asp-validation-for="Model.Bairro" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model.Complemento" class="control-label"></label>
+                            <input asp-for="Model.Complemento" class="form-control" />
+                            <span asp-validation-for="Model.Complemento" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.MtQuadrado" class="control-label"></label>
+                            <input asp-for="Model.MtQuadrado" class="form-control" />
+                            <span asp-validation-for="Model.MtQuadrado" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model.QtdBanheiros" class="control-label"></label>
+                            <select asp-for="Model.QtdBanheiros" class="form-control">
+                                <option value="" selected>Selecione uma opção</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="Model.QtdBanheiros" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <label asp-for="Model.QtdQuartos" class="control-label"></label>
+                            <select asp-for="Model.QtdQuartos" class="form-control">
+                                <option value="" selected>Selecione uma opção</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="Model.QtdQuartos" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model.QtdVagas" class="control-label"></label>
+                            <select asp-for="Model.QtdVagas" class="form-control">
+                                <option value="" selected>Selecione uma opção</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <span asp-validation-for="Model.QtdVagas" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="linhaflex">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+
+    <!-- Div 2 -->
+    <div id="div2" class="conteudo" style="@(Model.DivSelecionada == "div2" ? "display:block;" : "display:none;")">
+        Conteúdo da Div 2
+    </div>
+
+ 
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
